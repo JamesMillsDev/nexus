@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTree.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeData.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeNode.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Bounds2D.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Maths.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Point2D.h" />

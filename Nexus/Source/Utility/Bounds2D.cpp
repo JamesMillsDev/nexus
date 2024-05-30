@@ -15,6 +15,12 @@ namespace Nexus
 	{
 	}
 
+	Bounds2D::Bounds2D(Point2D _pos, Point2D _size)
+		: pos{ std::move(_pos) }, size{ std::move(_size) }
+	{
+
+	}
+
 	Bounds2D::Bounds2D(const Bounds2D& _other) = default;
 
 	Bounds2D::Bounds2D(Bounds2D&& _other) noexcept

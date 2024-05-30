@@ -46,6 +46,9 @@ namespace Nexus
 		Point2D operator+(const Point2D& _other) const;
 		Point2D& operator+=(const Point2D& _other);
 
+		Point2D operator*(float _other) const;
+		Point2D& operator*=(float _other);
+
 		Point2D& operator=(const Point2D& _other);
 		Point2D& operator=(Point2D&& _other) noexcept;
 

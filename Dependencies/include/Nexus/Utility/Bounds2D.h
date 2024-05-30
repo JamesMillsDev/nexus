@@ -24,6 +24,12 @@ namespace Nexus
 		 * @param _h The new value of the height component.
 		 */
 		Bounds2D(float _x, float _y, float _w, float _h);
+		/**
+		 * Sets the default values of the bounds to the passed values.
+		 * @param _pos The default position of the bounds.
+		 * @param _size The default size of the bounds.
+		 */
+		Bounds2D(Point2D _pos, Point2D _size);
 
 		Bounds2D(const Bounds2D& _other);
 		Bounds2D(Bounds2D&& _other) noexcept;

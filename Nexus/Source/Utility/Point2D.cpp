@@ -80,6 +80,22 @@ namespace Nexus
 		return *this;
 	}
 
+	Point2D Point2D::operator*(const float _other) const
+	{
+		return { x + _other, y + _other };
+	}
+
+	Point2D& Point2D::operator*=(const float _other)
+	{
+		if (*this == _other)
+			return *this;
+
+		x *= _other;
+		y *= _other;
+
+		return *this;
+	}
+
 	Point2D& Point2D::operator=(const Point2D& _other) = default;
 
 	Point2D& Point2D::operator=(Point2D&& _other) noexcept

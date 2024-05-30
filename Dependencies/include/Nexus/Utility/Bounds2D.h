@@ -1,10 +1,18 @@
 #pragma once
 
+#include <Nexus/Utility/Point2D.h>
+
 namespace Nexus
 {
 	/* A utility bounding box class used in the QuadTree types.*/
 	class Bounds2D
 	{
+	public:
+		/* The location of the bounds. */
+		Point2D pos;
+		/* The size of the bounds. */
+		Point2D size;
+
 	public:
 		/* Default constructor. Sets x and y to 0, and width and height to 1 */
 		Bounds2D();
@@ -22,44 +30,22 @@ namespace Nexus
 		~Bounds2D();
 
 	public:
-		/* Returns the x component of the bounds as a non-constant value. */
-		float X();
-		/* Returns the y component of the bounds as a non-constant value. */
-		float Y();
-		/* Returns the width component of the bounds as a non-constant value. */
-		float Width();
-		/* Returns the height component of the bounds as a non-constant value. */
-		float Height();
-
-		/* Returns the x component of the bounds as a constant value. */
-		[[nodiscard]] float X() const;
-		/* Returns the y component of the bounds as a constant value. */
-		[[nodiscard]] float Y() const;
-		/* Returns the width component of the bounds as a constant value. */
-		[[nodiscard]] float Width() const;
-		/* Returns the height component of the bounds as a constant value. */
-		[[nodiscard]] float Height() const;
-
 		/**
-		 * Sets the x location component of the bounds to the passed value.
-		 * @param _x The new x location of the bounds.
+		 * Checks if a passed point is within the bounds of the Bounds2D.
+		 * @param _x The x position of the point we are testing against.
+		 * @param _y The y position of the point we are testing against.
 		 */
-		void SetX(float _x);
+		[[nodiscard]] bool Contains(float _x, float _y) const;
 		/**
-		 * Sets the y location component of the bounds to the passed value.
-		 * @param _y The new y location of the bounds.
+		 * Checks if a passed point is within the bounds of the Bounds2D.
+		 * @param _point The point we are testing against.
 		 */
-		void SetY(float _y);
+		[[nodiscard]] bool Contains(const Point2D& _point) const;
 		/**
-		 * Sets the width component of the bounds to the passed value.
-		 * @param _w The new width of the bounds.
+		 * Checks if a passed Bounds2D overlaps with this one.
+		 * @param _other The bounding box we are checking against.
 		 */
-		void SetWidth(float _w);
-		/**
-		 * Sets the height component of the bounds to the passed value.
-		 * @param _h The new height of the bounds.
-		 */
-		void SetHeight(float _h);
+		[[nodiscard]] bool Overlaps(const Bounds2D& _other) const;
 
 	public:
 		bool operator==(const Bounds2D& _other) const;
@@ -67,16 +53,6 @@ namespace Nexus
 
 		Bounds2D& operator=(const Bounds2D& _other);
 		Bounds2D& operator=(Bounds2D&& _other) noexcept;
-
-	private:
-		/* The horizontal location of the bounds. */
-		float m_x;
-		/* The vertical location of the bounds. */
-		float m_y;
-		/* The horizontal size of the bounds. */
-		float m_width;
-		/* The vertical size of the bounds. */
-		float m_height;
 
 	};
 }

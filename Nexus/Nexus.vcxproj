@@ -20,9 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Bounds2D.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Utility\Maths.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Utility\Point2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Utility\Bounds2D.cpp" />
+    <ClCompile Include="Source\Utility\Maths.cpp" />
+    <ClCompile Include="Source\Utility\Point2D.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

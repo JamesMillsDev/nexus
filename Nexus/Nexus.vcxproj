@@ -22,6 +22,7 @@
     <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashEntry.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashFunctions.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashMap.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Collections\LinkedList.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTree.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeData.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeNode.h" />

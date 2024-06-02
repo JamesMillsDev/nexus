@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashEntry.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashFunctions.h" />
+    <ClInclude Include="..\Dependencies\include\Nexus\Collections\HashMap.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTree.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeData.h" />
     <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeNode.h" />
@@ -27,6 +30,7 @@
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Point2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Collections\HashFunctions.cpp" />
     <ClCompile Include="Source\Utility\Bounds2D.cpp" />
     <ClCompile Include="Source\Utility\Maths.cpp" />
     <ClCompile Include="Source\Utility\Point2D.cpp" />

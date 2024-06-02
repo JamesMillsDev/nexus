@@ -49,5 +49,14 @@
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Maths.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTree.h">
+      <Filter>Header Files\Trees</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeData.h">
+      <Filter>Header Files\Trees</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeNode.h">
+      <Filter>Header Files\Trees</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

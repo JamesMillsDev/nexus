@@ -32,10 +32,31 @@
     <ClCompile Include="Source\Utility\Bounds2D.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Utility\Point2D.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Maths.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\include\Nexus\Utility\Bounds2D.h">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Utility\Point2D.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Utility\Maths.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTree.h">
+      <Filter>Header Files\Trees</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeData.h">
+      <Filter>Header Files\Trees</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\Nexus\Trees\QuadTreeNode.h">
+      <Filter>Header Files\Trees</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

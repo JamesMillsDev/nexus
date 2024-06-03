@@ -1,102 +1,58 @@
 #include <Nexus/Utility/Bounds2D.h>
+#include <Nexus/Utility/Point2D.h>
 
-#include <cfloat>
-#include <corecrt_math.h>
+#include <algorithm>
 
 namespace Nexus
 {
-	bool Compare(const float _x, const float _y)
-	{
-		return fabsf(_x - _y) <= (FLT_EPSILON + 0.000001f) * fmaxf(1.f, fmaxf(fabsf(_x), fabsf(_y)));
-	}
-
 	Bounds2D::Bounds2D()
-		: m_x{ 0.f }, m_y{ 0.f }, m_width{ 1.f }, m_height{ 1.f }
+		: pos{ Point2D::zero }, size{ Point2D::zero }
 	{
 	}
 
 	Bounds2D::Bounds2D(const float _x, const float _y, const float _w, const float _h)
-		: m_x{ _x }, m_y{ _y }, m_width{ _w }, m_height{ _h }
+		: pos{ _x, _y }, size{ _w, _h }
 	{
+	}
+
+	Bounds2D::Bounds2D(Point2D _pos, Point2D _size)
+		: pos{ std::move(_pos) }, size{ std::move(_size) }
+	{
+
 	}
 
 	Bounds2D::Bounds2D(const Bounds2D& _other) = default;
 
 	Bounds2D::Bounds2D(Bounds2D&& _other) noexcept
-		: m_x{ _other.m_x }, m_y{ _other.m_y }, m_width{ _other.m_width }, m_height{ _other.m_height }
+		: pos{ std::move(_other.pos) }, size{ std::move(_other.size) }
 	{
-		_other.m_x = 0.f;
-		_other.m_y = 0.f;
-		_other.m_width = 0.f;
-		_other.m_height = 0.f;
+		_other.pos = Point2D::zero;
+		_other.size = Point2D::zero;
 	}
 
 	Bounds2D::~Bounds2D() = default;
 
-	float Bounds2D::X()
+	bool Bounds2D::Contains(const float _x, const float _y) const
 	{
-		return m_x;
+		return _x > pos.x && _y > pos.y && _x < pos.x + size.x && _y < pos.y + size.y;
 	}
 
-	float Bounds2D::Y()
+	bool Bounds2D::Contains(const Point2D& _point) const
 	{
-		return m_y;
+		return Contains(_point.x, _point.y);
 	}
 
-	float Bounds2D::Width()
+	bool Bounds2D::Overlaps(const Bounds2D& _other) const
 	{
-		return m_width;
-	}
+		const Point2D vec = pos - _other.pos;
+		const Point2D overlap = _other.size + size - Point2D{ fabsf(vec.x), fabsf(vec.y) };
 
-	float Bounds2D::Height()
-	{
-		return m_height;
-	}
-
-	float Bounds2D::X() const
-	{
-		return m_x;
-	}
-
-	float Bounds2D::Y() const
-	{
-		return m_y;
-	}
-
-	float Bounds2D::Width() const
-	{
-		return m_width;
-	}
-
-	float Bounds2D::Height() const
-	{
-		return m_height;
-	}
-
-	void Bounds2D::SetX(const float _x)
-	{
-		m_x = _x;
-	}
-
-	void Bounds2D::SetY(const float _y)
-	{
-		m_y = _y;
-	}
-
-	void Bounds2D::SetWidth(const float _w)
-	{
-		m_width = _w;
-	}
-
-	void Bounds2D::SetHeight(const float _h)
-	{
-		m_height = _h;
+		return overlap.x > 0 && overlap.y > 0;
 	}
 
 	bool Bounds2D::operator==(const Bounds2D& _other) const
 	{
-		return Compare(m_x, _other.m_x) && Compare(m_y, _other.m_y) &&
-			Compare(m_width, _other.m_width) && Compare(m_height, _other.m_height);
+		return pos == _other.pos && size == _other.size;
 	}
 
 	bool Bounds2D::operator!=(const Bounds2D& _other) const
@@ -111,15 +67,8 @@ namespace Nexus
 		if (*this == _other)
 			return *this;
 
-		m_x = _other.m_x;
-		m_y = _other.m_y;
-		m_width = _other.m_width;
-		m_height = _other.m_height;
-
-		_other.m_x = 0.f;
-		_other.m_y = 0.f;
-		_other.m_width = 0.f;
-		_other.m_height = 0.f;
+		pos = std::move(_other.pos);
+		size = std::move(_other.size);
 
 		return *this;
 	}

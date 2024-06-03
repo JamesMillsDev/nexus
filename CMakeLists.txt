@@ -27,7 +27,9 @@ MACRO(SOURCE_DIRECTORIES return_list)
     SET(dir_list "")
     FOREACH(file_path ${new_list})
         GET_FILENAME_COMPONENT(dir_path ${file_path} PATH)
-        SET(dir_list ${dir_list} ${file_path})
+        if(NOT ${dir_path} MATCHES "CMake")
+            SET(dir_list ${dir_list} ${file_path})
+        endif()
     ENDFOREACH()
     LIST(REMOVE_DUPLICATES dir_list)
     SET(${return_list} ${dir_list})
@@ -36,13 +38,14 @@ ENDMACRO()
 function(include_all_files)
     #argv[0] - result variable, argv[1] - add relative paths, set "" if you don't want it
     #argv[2] - path to folder with folders
-    SUBDIRLIST(SUBDIRS "" ${CMAKE_CURRENT_SOURCE_DIR}/Nexus)
+    SUBDIRLIST(SUBDIRS ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/Nexus)
     SOURCE_DIRECTORIES(SUBFILES)
     
     add_library(nexus STATIC ${SUBFILES})
+    
+    target_include_directories(nexus PUBLIC ${SUBDIRS} ${CMAKE_CURRENT_SOURCE_DIR}/tinyxml)
 
     FOREACH(subdir ${SUBDIRS})
-        target_include_directories(nexus PUBLIC ${subdir})
         message("[INFO] found header directory: ${subdir}.")
     ENDFOREACH()
 
@@ -53,3 +56,5 @@ function(include_all_files)
 endfunction()
 
 include_all_files()
+
+add_subdirectory(tinyxml)

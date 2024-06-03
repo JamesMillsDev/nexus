@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Nexus/Trees/QuadTreeNode.h>
+#include "QuadTreeNode.h"
 
 namespace Nexus
 {

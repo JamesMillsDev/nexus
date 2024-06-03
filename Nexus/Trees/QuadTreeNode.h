@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Nexus/Trees/QuadTreeData.h>
+#include "QuadTreeData.h"
 
 #include <vector>
 #include <queue>

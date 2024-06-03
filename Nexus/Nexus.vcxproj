@@ -18,12 +18,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Dependencies\include\Nexus\Utility\Bounds2D.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\Utility\Bounds2D.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
